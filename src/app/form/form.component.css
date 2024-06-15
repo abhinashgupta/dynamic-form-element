@@ -1,0 +1,115 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #d1d1d1;
+  padding: 5vw;
+}
+
+.student-box {
+  position: relative;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1vw;
+}
+
+select {
+  margin-top: 0.5vw;
+  height: 40px;
+  background-color: #b2b2b2;
+  cursor: pointer;
+}
+
+button {
+  background-color: #d1d1d1;
+  border: none;
+  cursor: pointer;
+}
+
+.removeStudent {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.removeCourse {
+  position: relative;
+  display: inline-block;
+}
+
+.addCourse {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.Save {
+  margin-top: 20px;
+  background-color: #4CAF50; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.Save:hover {
+  background-color: #45a049; 
+}
+
+.addStudent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3vw;
+  }
+
+  .student-box {
+    padding: 15px;
+  }
+
+  label {
+    margin-top: 2vw;
+  }
+
+  select {
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 2vw;
+  }
+
+  .student-box {
+    padding: 10px;
+  }
+
+  label {
+    margin-top: 3vw;
+  }
+
+  select {
+    height: 30px;
+  }
+}

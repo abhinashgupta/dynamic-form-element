@@ -1,0 +1,73 @@
+<div class="container">
+  <form [formGroup]="studentForm" (ngSubmit)="saveChanges()">
+    <div formArrayName="students">
+      <div
+        *ngFor="let student of students.controls; let i = index"
+        class="student-box"
+      >
+        <div class="removeStudent">
+          <button type="button" (click)="removeStudent(i)">
+            <img src="../../assets/images/cancel.png" height="15px" alt="" />
+          </button>
+        </div>
+
+        <div [formGroupName]="i" class="student-form">
+          <label>
+            Student Name:
+            <select formControlName="name">
+              <option *ngFor="let name of names" [value]="name">
+                {{ name }}
+              </option>
+            </select>
+          </label>
+
+          <div formArrayName="courses">
+            <div
+              *ngFor="
+                let course of getCoursesControl(i).controls;
+                let j = index
+              "
+              [formGroupName]="j"
+              class="course-item"
+            >
+              <label>
+                Course Name:
+                <select formControlName="name">
+                  <option
+                    *ngFor="let courseOption of courses"
+                    [value]="courseOption.name"
+                  >
+                    {{ courseOption.name }}
+                  </option>
+                </select>
+              </label>
+              <div class="removeCourse">
+                <button type="button" (click)="removeCourse(i, j)">
+                  <img
+                    src="../../assets/images/remove.png"
+                    height="20px"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="addCourse">
+            <button type="button" (click)="addCourse(i)">
+            <img src="../../assets/images/plus.png" height="20px" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="addStudent">
+      <button type="button" (click)="addStudent()">
+        <img src="../../assets/images/plus.png" height="20px" alt="" /> 
+      </button>
+    </div>
+
+    <button class="Save" type="submit">Save Changes</button>
+  </form>
+</div>
